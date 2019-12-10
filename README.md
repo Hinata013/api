@@ -46,6 +46,8 @@
 # 原型
 ## 交互及界面
 ![首页](https://github.com/Hinata013/api/blob/master/1.png)
+![首页](https://github.com/Hinata013/api/blob/master/2.png)
+
 
 
 
