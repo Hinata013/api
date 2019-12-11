@@ -46,7 +46,12 @@
 # 原型
 ## 交互及界面
 - ![首页](https://github.com/Hinata013/api/blob/master/1.png)
-- ![第一页](https://github.com/Hinata013/api/blob/master/2.png)
+- ![一页](https://github.com/Hinata013/api/blob/master/22.png)
+- ![二页](https://github.com/Hinata013/api/blob/master/3.png)
+- ![三页](https://github.com/Hinata013/api/blob/master/4.png)
+- ![四页](https://github.com/Hinata013/api/blob/master/5.png)
+- ![五页](https://github.com/Hinata013/api/blob/master/6.png)
+- ![六页](https://github.com/Hinata013/api/blob/master/7.png)
 
 
 
