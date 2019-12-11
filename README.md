@@ -2,7 +2,7 @@
 |  发布时间  | 2019年12月5日  |
 |  ----  | ----  |
 | 产品名称  | 在线证件照图片制作APP |
-| 完成进度  | 完成核心价值主张部分 |
+| 完成进度  | 完成核心价值主张部分与原型设计 |
 | 文件主人  | 林泽伟 |
 | 设计师  | 林泽伟 |
 | 开发者  | 林泽伟 |
@@ -45,7 +45,7 @@
 
 # 原型
 ## 交互及界面
-- ![首页](https://github.com/Hinata013/api/blob/master/1.png)
+- ![首页](https://github.com/Hinata013/api/blob/master/11.png)
 - ![一页](https://github.com/Hinata013/api/blob/master/22.png)
 - ![二页](https://github.com/Hinata013/api/blob/master/3.png)
 - ![三页](https://github.com/Hinata013/api/blob/master/4.png)
