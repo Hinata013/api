@@ -163,7 +163,8 @@ if response:
 }
 ```
 - 测试
-- ![首页](https://github.com/Hinata013/api/blob/master/11.png)
+- ![测试1](https://github.com/Hinata013/api/blob/master/c1.png)
+- ![测试2](https://github.com/Hinata013/api/blob/master/c2.png)
 
 
 
@@ -206,6 +207,8 @@ if response:
 ```
 
 - 测试
+- ![测试3](https://github.com/Hinata013/api/blob/master/c3.png)
+- ![测试4](https://github.com/Hinata013/api/blob/master/c4.png)
 
 ### 百度拉伸图像恢复API
 - 接口描述：自动识别过度拉伸的图像，将图像内容恢复成正常比例。
@@ -240,7 +243,9 @@ if response:
 	"image": "处理后图片的Base64编码"
 }
 ```
-
+- 测试
+- ![测试5](https://github.com/Hinata013/api/blob/master/c5.png)
+- ![测试6](https://github.com/Hinata013/api/blob/master/c6.png)
 
 
 
