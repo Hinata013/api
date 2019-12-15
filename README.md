@@ -59,6 +59,9 @@
 - ![五页](https://github.com/Hinata013/api/blob/master/6.png)
 - ![六页](https://github.com/Hinata013/api/blob/master/7.png)
 ## 信息设计
+- ![产品结构图](https://github.com/Hinata013/api/blob/master/111.png)
+- ![信息结构图](https://github.com/Hinata013/api/blob/master/222.png)
+- ![使用流程图](https://github.com/Hinata013/api/blob/master/333.png)
 
 ## 原型文档
 
