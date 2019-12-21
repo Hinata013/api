@@ -158,6 +158,7 @@ headers = {'content-type': 'application/x-www-form-urlencoded'}
 response = requests.post(request_url, data=params, headers=headers)
 if response:
     print (response.json())
+```
 - 输出部分过长，用截图方式体现
 
 - 测试
