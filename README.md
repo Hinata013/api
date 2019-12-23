@@ -86,7 +86,7 @@
 request_url = "https://aip.baidubce.com/rest/2.0/face/v3/detect"
 
 params = "{\"image\":\"027d8308a2ec665acb1bdf63e513bcb9\",\"image_type\":\"FACE_TOKEN\",\"face_field\":\"faceshape,facetype\"}"
-access_token = '[调用鉴权接口获取的token]'
+access_token = '[24.98a36d5af188e07b1dd272e73f7c3856.2592000.1579526413.282335-18081421]'
 request_url = request_url + "?access_token=" + access_token
 headers = {'content-type': 'application/json'}
 response = requests.post(request_url, data=params, headers=headers)
