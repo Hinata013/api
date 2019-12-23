@@ -247,8 +247,9 @@ if response:
 #### 选择百度云的原因：
 - 人像分割算法业界领先，评测IoU 90%以上，并基于应用反馈和场景数据持续迭代优化；可提供企业级稳定、精确的大流量服务，拥有毫秒级识别响应能力及99.9%的可靠性保障；性价比更高。
 #### 价格对比
-- ![百度](https://github.com/Hinata013/api/blob/master/baidu1.png)
-- ![face](https://github.com/Hinata013/api/blob/master/face.png)
+- ![百度](https://github.com/Hinata013/api/blob/master/baidu3.png)
+- ![百度22](https://github.com/Hinata013/api/blob/master/baidu4.png)
+- ![face](https://github.com/Hinata013/api/blob/master/al.png)
 ### 与百度人脸检测API对比
 #### FACE++人脸检测API：
 - 优点：高效准确，获得国际多项大奖
@@ -256,8 +257,8 @@ if response:
 #### 选择百度云的原因：
 - 百度人脸检测API算法在最权威的公开评测比赛中排名世界领先，也有着很高的准确率，而且使用更加方便，对图片要求跟低，更有利于普通人，而且access_token的有效期为30天，更加有利。
 #### 价格对比
-- ![百度](https://github.com/Hinata013/api/blob/master/baidu2.png)
-- ![阿里](https://github.com/Hinata013/api/blob/master/al.png)
+- ![百度11](https://github.com/Hinata013/api/blob/master/baidu1.png)
+- ![阿里](https://github.com/Hinata013/api/blob/master/face.png)
 ### 百度拉伸图像恢复API暂时找不到其他竞品API
 
 
@@ -267,7 +268,8 @@ if response:
 - 最短边至少50px，最长边最大4096px；
 - 要求base64编码和urlencode后大小不超过4M。
 ### 价格
-- ![baidu](https://github.com/Hinata013/api/blob/master/baidu1.png)
+- ![baidu](https://github.com/Hinata013/api/blob/master/baidu3.png)
+- ![百度222](https://github.com/Hinata013/api/blob/master/baidu4.png)
 ### 百度人脸检测API：
 - 准确率达到99.99%，对用户体验的负面影响不会压过正面影响的机率；
 - access_token的有效期为30天，切记需要每30天进行定期更换，或者每次请求都拉取新token；
