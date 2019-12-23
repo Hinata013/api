@@ -64,6 +64,7 @@
 - ![使用流程图](https://github.com/Hinata013/api/blob/master/333.png)
 
 ## 原型文档
+[原型](http://nfunm053.gitee.io/api_passport_photo/#id=pfqphn&p=%E9%A6%96%E9%A1%B5)
 [原型文档下载](https://github.com/Hinata013/api/blob/master/%E5%9C%A8%E7%BA%BF%E8%AF%81%E4%BB%B6%E7%85%A7%E5%88%B6%E4%BD%9Capp.rp)
 
 ## 口头操作说明
