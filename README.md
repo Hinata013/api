@@ -217,8 +217,72 @@ if response:
 #### 主要竞争者-FACE++人脸检测API：
 - 优点：高效准确，获得国际多项大奖
 - 缺点：对使用的图片要求相对较高，如果一个 face_token 在 72 小时内没有存放在任一 FaceSet 中，则该 face_token 将会失效。
+#### Face++代码测试
+- 输入
+```
+# -*- coding: utf-8 -*-
+import urllib.request
+import urllib.error
+import time
+
+http_url = 'https://api-cn.faceplusplus.com/facepp/v3/detect'
+key = "1xZt600gnMyz6dVd0BWOlwyRBNsrUbbT"
+secret = "vIXKcdwlvJf6nhtMNct0mim9LisJeO66"
+filepath = r"31313.jpg"
+
+boundary = '----------%s' % hex(int(time.time() * 1000))
+data = []
+data.append('--%s' % boundary)
+data.append('Content-Disposition: form-data; name="%s"\r\n' % 'api_key')
+data.append(key)
+data.append('--%s' % boundary)
+data.append('Content-Disposition: form-data; name="%s"\r\n' % 'api_secret')
+data.append(secret)
+data.append('--%s' % boundary)
+fr = open(filepath, 'rb')
+data.append('Content-Disposition: form-data; name="%s"; filename=" "' % 'image_file')
+data.append('Content-Type: %s\r\n' % 'application/octet-stream')
+data.append(fr.read())
+fr.close()
+data.append('--%s' % boundary)
+data.append('Content-Disposition: form-data; name="%s"\r\n' % 'return_landmark')
+data.append('1')
+data.append('--%s' % boundary)
+data.append('Content-Disposition: form-data; name="%s"\r\n' % 'return_attributes')
+data.append(
+    "gender,age,smiling,headpose,facequality,blur,eyestatus,emotion,ethnicity,beauty,mouthstatus,eyegaze,skinstatus")
+data.append('--%s--\r\n' % boundary)
+
+for i, d in enumerate(data):
+    if isinstance(d, str):
+        data[i] = d.encode('utf-8')
+
+http_body = b'\r\n'.join(data)
+
+# build http request
+req = urllib.request.Request(url=http_url, data=http_body)
+
+# header
+req.add_header('Content-Type', 'multipart/form-data; boundary=%s' % boundary)
+
+try:
+    # post data to server
+    resp = urllib.request.urlopen(req, timeout=5)
+    # get response
+    qrcont = resp.read()
+    # if you want to load as json, you should decode first,
+    # for example: json.loads(qrount.decode('utf-8'))
+    print(qrcont.decode('utf-8'))
+except urllib.error.HTTPError as e:
+    print(e.read().decode('utf-8'))
+```
+- 输出
+```
+{"time_used": 319, "faces": [{"landmark": {"mouth_upper_lip_left_contour2": {"y": 365, "x": 652}, "mouth_upper_lip_top": {"y": 360, "x": 681}, "mouth_upper_lip_left_contour1": {"y": 358, "x": 671}, "left_eye_upper_left_quarter": {"y": 226, "x": 597}, "left_eyebrow_lower_middle": {"y": 195, "x": 607}, "mouth_upper_lip_left_contour3": {"y": 371, "x": 659}, "right_eye_top": {"y": 220, "x": 741}, "left_eye_bottom": {"y": 245, "x": 612}, "right_eyebrow_lower_left_quarter": {"y": 186, "x": 723}, "right_eye_pupil": {"y": 230, "x": 743}, "mouth_lower_lip_right_contour1": {"y": 372, "x": 703}, "mouth_lower_lip_right_contour3": {"y": 385, "x": 698}, "mouth_lower_lip_right_contour2": {"y": 379, "x": 712}, "contour_chin": {"y": 454, "x": 685}, "contour_left9": {"y": 448, "x": 649}, "left_eye_lower_right_quarter": {"y": 243, "x": 629}, "mouth_lower_lip_top": {"y": 373, "x": 682}, "right_eyebrow_upper_middle": {"y": 169, "x": 742}, "left_eyebrow_left_corner": {"y": 195, "x": 566}, "right_eye_bottom": {"y": 241, "x": 743}, "contour_left7": {"y": 412, "x": 597}, "contour_left6": {"y": 388, "x": 578}, "contour_left5": {"y": 361, "x": 564}, "contour_left4": {"y": 331, "x": 554}, "contour_left3": {"y": 302, "x": 547}, "contour_left2": {"y": 272, "x": 541}, "contour_left1": {"y": 240, "x": 538}, "left_eye_lower_left_quarter": {"y": 242, "x": 597}, "contour_right1": {"y": 231, "x": 811}, "contour_right3": {"y": 292, "x": 807}, "contour_right2": {"y": 262, "x": 811}, "mouth_left_corner": {"y": 374, "x": 636}, "contour_right4": {"y": 322, "x": 802}, "contour_right7": {"y": 403, "x": 765}, "right_eyebrow_left_corner": {"y": 188, "x": 702}, "nose_right": {"y": 312, "x": 715}, "nose_tip": {"y": 299, "x": 681}, "contour_right5": {"y": 351, "x": 794}, "nose_contour_lower_middle": {"y": 324, "x": 682}, "left_eyebrow_lower_left_quarter": {"y": 194, "x": 586}, "mouth_lower_lip_left_contour3": {"y": 386, "x": 664}, "right_eye_right_corner": {"y": 230, "x": 770}, "right_eye_lower_right_quarter": {"y": 237, "x": 759}, "mouth_upper_lip_right_contour2": {"y": 363, "x": 709}, "right_eyebrow_lower_right_quarter": {"y": 183, "x": 765}, "left_eye_left_corner": {"y": 235, "x": 585}, "mouth_right_corner": {"y": 371, "x": 724}, "mouth_upper_lip_right_contour3": {"y": 369, "x": 702}, "right_eye_lower_left_quarter": {"y": 240, "x": 727}, "left_eyebrow_right_corner": {"y": 192, "x": 651}, "left_eyebrow_lower_right_quarter": {"y": 196, "x": 629}, "right_eye_center": {"y": 232, "x": 742}, "nose_left": {"y": 315, "x": 647}, "mouth_lower_lip_left_contour1": {"y": 373, "x": 659}, "left_eye_upper_right_quarter": {"y": 226, "x": 630}, "right_eyebrow_lower_middle": {"y": 182, "x": 744}, "left_eye_top": {"y": 222, "x": 613}, "left_eye_center": {"y": 235, "x": 613}, "contour_left8": {"y": 432, "x": 621}, "contour_right9": {"y": 445, "x": 719}, "right_eye_left_corner": {"y": 237, "x": 712}, "mouth_lower_lip_bottom": {"y": 387, "x": 682}, "left_eyebrow_upper_left_quarter": {"y": 181, "x": 584}, "left_eye_pupil": {"y": 232, "x": 619}, "right_eyebrow_upper_left_quarter": {"y": 173, "x": 719}, "contour_right8": {"y": 425, "x": 744}, "right_eyebrow_right_corner": {"y": 187, "x": 786}, "right_eye_upper_left_quarter": {"y": 225, "x": 724}, "left_eyebrow_upper_middle": {"y": 180, "x": 607}, "right_eyebrow_upper_right_quarter": {"y": 172, "x": 767}, "nose_contour_left1": {"y": 239, "x": 661}, "nose_contour_left2": {"y": 292, "x": 655}, "mouth_upper_lip_right_contour1": {"y": 358, "x": 692}, "nose_contour_right1": {"y": 238, "x": 697}, "nose_contour_right2": {"y": 290, "x": 706}, "mouth_lower_lip_left_contour2": {"y": 382, "x": 649}, "contour_right6": {"y": 378, "x": 782}, "nose_contour_right3": {"y": 320, "x": 700}, "nose_contour_left3": {"y": 321, "x": 664}, "left_eye_right_corner": {"y": 239, "x": 643}, "left_eyebrow_upper_right_quarter": {"y": 182, "x": 630}, "right_eye_upper_right_quarter": {"y": 223, "x": 757}, "mouth_upper_lip_bottom": {"y": 371, "x": 682}}, "attributes": {"emotion": {"sadness": 2.22, "neutral": 88.815, "disgust": 0.081, "anger": 0.081, "surprise": 8.246, "fear": 0.475, "happiness": 0.081}, "beauty": {"female_score": 83.897, "male_score": 81.629}, "gender": {"value": "Female"}, "age": {"value": 23}, "mouthstatus": {"close": 80.669, "surgical_mask_or_respirator": 0.0, "open": 19.331, "other_occlusion": 0.0}, "glass": {"value": "None"}, "skinstatus": {"dark_circle": 7.112, "stain": 4.466, "acne": 0.769, "health": 82.282}, "headpose": {"yaw_angle": -1.7968067, "pitch_angle": 1.5823805, "roll_angle": 0.29426557}, "blur": {"blurness": {"threshold": 50.0, "value": 0.822}, "motionblur": {"threshold": 50.0, "value": 0.822}, "gaussianblur": {"threshold": 50.0, "value": 0.822}}, "smile": {"threshold": 50.0, "value": 0.001}, "eyestatus": {"left_eye_status": {"normal_glass_eye_open": 0.192, "no_glass_eye_close": 0.0, "occlusion": 0.001, "no_glass_eye_open": 99.807, "normal_glass_eye_close": 0.0, "dark_glasses": 0.0}, "right_eye_status": {"normal_glass_eye_open": 0.112, "no_glass_eye_close": 0.0, "occlusion": 0.005, "no_glass_eye_open": 99.882, "normal_glass_eye_close": 0.0, "dark_glasses": 0.002}}, "facequality": {"threshold": 70.1, "value": 93.684}, "ethnicity": {"value": ""}, "eyegaze": {"right_eye_gaze": {"position_x_coordinate": 0.509, "vector_z_component": 0.997, "vector_x_component": 0.025, "vector_y_component": 0.079, "position_y_coordinate": 0.429}, "left_eye_gaze": {"position_x_coordinate": 0.533, "vector_z_component": 0.985, "vector_x_component": 0.174, "vector_y_component": 0.019, "position_y_coordinate": 0.432}}}, "face_rectangle": {"width": 283, "top": 170, "left": 534, "height": 283}, "face_token": "870d8c2f6d576f0118a1ec468d22caeb"}], "image_id": "It6XAUdpehC1X7GLWxvQaA==", "request_id": "1577201638,2d671729-2fab-4b70-b8a1-5155daceef55", "face_num": 1}
+```
 #### 选择百度云的原因：
-- 百度人脸检测API算法在最权威的公开评测比赛中排名世界领先，也有着很高的准确率，而且使用更加方便，对图片要求跟低，更有利于普通人，而且access_token的有效期为30天，更加有利。
+- 百度人脸检测API算法在最权威的公开评测比赛中排名世界领先，也有着很高的准确率，而且使用更加方便，对图片要求跟低，更有利于普通人，而且access_token的有效期为30天，更加有利（Face++只有7天）；
+- 通过二者之间的使用对比，发现百度的输出值只是输出默认部分，需要自己添加需要的检测点，而Face++这输出全部数据，对于本产品而已，人脸检测需要用到的值只有角度朝向，所以使用百度更加方便。
 #### 价格（性价比）对比
 ##### 百度价格
 - ![百度11](https://github.com/Hinata013/api/blob/master/baidu1.png)
