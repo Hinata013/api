@@ -197,14 +197,16 @@ if response:
 
 ## 使用比较分析 
 ### 与百度人像分割API对比
-#### 阿来云智能人像分割（抠图）API：
+#### 阿来=里云智能人像分割（抠图）API：
 - 优点： 1、分割精度高，准确率高，速度快。 2、支持软分割，可返回每个像素判为人像的概率，适合在图像合成中应用。
 - 缺点：免费只有试用套餐，收费使用价格较高，头发处理有瑕疵。
 #### 选择百度云的原因：
 - 人像分割算法业界领先，评测IoU 90%以上，并基于应用反馈和场景数据持续迭代优化；可提供企业级稳定、精确的大流量服务，拥有毫秒级识别响应能力及99.9%的可靠性保障；性价比更高。
 #### 价格对比
+##### 百度价格
 - ![百度](https://github.com/Hinata013/api/blob/master/baidu3.png)
 - ![百度22](https://github.com/Hinata013/api/blob/master/baidu4.png)
+##### 阿里云价格
 - ![face](https://github.com/Hinata013/api/blob/master/al.png)
 ### 与百度人脸检测API对比
 #### FACE++人脸检测API：
@@ -213,7 +215,9 @@ if response:
 #### 选择百度云的原因：
 - 百度人脸检测API算法在最权威的公开评测比赛中排名世界领先，也有着很高的准确率，而且使用更加方便，对图片要求跟低，更有利于普通人，而且access_token的有效期为30天，更加有利。
 #### 价格对比
+##### 百度价格
 - ![百度11](https://github.com/Hinata013/api/blob/master/baidu1.png)
+##### face++价格
 - ![阿里](https://github.com/Hinata013/api/blob/master/face.png)
 ### 百度拉伸图像恢复API暂时找不到其他竞品API
 
