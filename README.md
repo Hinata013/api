@@ -83,89 +83,41 @@
  人脸检测与属性分析
  '''
 
+import urllib.request,sys,base64
+import urllib.parse
 request_url = "https://aip.baidubce.com/rest/2.0/face/v3/detect"
 
-params = "{\"image\":\"027d8308a2ec665acb1bdf63e513bcb9\",\"image_type\":\"FACE_TOKEN\",\"face_field\":\"faceshape,facetype\"}"
-access_token = '[24.98a36d5af188e07b1dd272e73f7c3856.2592000.1579526413.282335-18081421]'
+f = open('q3.jpg', 'rb')
+image = base64.b64encode(f.read())
+image64 = str(image,'utf-8')
+image_type = "BASE64"
+
+
+
+
+params = {'image': image64,'image_type':"BASE64",'face_field': 'faceshape,facetype'}
+
+params = urllib.parse.urlencode(params).encode("utf-8")
+
+
+access_token = '[24.b5ff1af7ad57860f4a47b0972dd0560f.2592000.1579764577.282335-18098227]'
 request_url = request_url + "?access_token=" + access_token
-headers = {'content-type': 'application/json'}
-response = requests.post(request_url, data=params, headers=headers)
-if response:
-    print (response.json())
+
+request = urllib.request.urlopen(url=request_url, data=params)   
+
+content = request.read()  
+print(content) 
+
 ```
 - 输出
 ```
-{	
-  "face_num": 1,
-  "face_list": [
-        {
-            "face_token": "35235asfas21421fakghktyfdgh68bio",
-            "location": { 
-                "left": 117,
-                "top": 131,
-                "width": 172,
-                "height": 170,
-                "rotation": 4
-            },
-            "face_probability": 1,
-            "angle" :{
-                 "yaw" : -0.34859421849251
-                 "pitch" 1.9135693311691  
-                 "roll" :2.3033397197723  
-            }
-            "landmark": [  
-                {
-                    "x": 161.74819946289,
-                    "y": 163.30244445801
-                },
-                ...
-            ],
-            "landmark72": [ 
-                {
-                    "x": 115.86531066895,
-                    "y": 170.0546875
-                }，
-                ...
-            ],
-            "age": 29.298097610474,
-            "beauty": 55.128883361816,
-            "expression": {
-                "type": "smile",
-                "probability" : 0.5543018579483
-            },
-            "gender": {
-                "type": "male",
-                "probability": 0.99979132413864
-            },
-            "glasses": {
-    			"type": "sun",
-                "probability": 0.99999964237213
-            },
-            "race": {
-                "type": "yellow",
-                "probability": 0.99999976158142
-            },
-            "face_shape": {
-                "type": "triangle",
-                "probability": 0.5543018579483
-            }
-            "quality": {
-                "occlusion": {
-                    "left_eye": 0,
-                    "right_eye": 0,
-                    "nose": 0,
-                    "mouth": 0,
-                    "left_cheek": 0.0064102564938366,
-                    "right_cheek": 0.0057411273010075,
-                    "chin": 0
-                },
-                "blur": 1.1886881756684e-10,
-                "illumination": 141,
-                "completeness": 1
-            }
-        }
-    ]
-}
+(b'{"error_code":0,"error_msg":"SUCCESS","log_id":19955551594,"timestamp":15771'
+ b'72758,"cached":0,"result":{"face_num":1,"face_list":[{"face_token":"3d44d56f'
+ b'3d2d41190368b2697023d5f2","location":{"left":235.97,"top":819.91,"width":426'
+ b',"height":446,"rotation":0},"face_probability":0.95,"angle":{"yaw":-7.9,"pit'
+ b'ch":-5.58,"roll":-4.76},"face_shape":{"type":"square","probability":0.52},"f'
+ b'ace_type":{"type":"human","probability":1}}]}}')
+
 ```
 - 测试
 - ![测试1](https://github.com/Hinata013/api/blob/master/c1.png)
