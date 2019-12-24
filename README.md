@@ -64,8 +64,8 @@
 - ![使用流程图](https://github.com/Hinata013/api/blob/master/333.png)
 
 ## 原型文档
-[原型](http://nfunm053.gitee.io/api_passport_photo/#id=pfqphn&p=%E9%A6%96%E9%A1%B5)
-[原型文档下载](https://github.com/Hinata013/api/blob/master/%E5%9C%A8%E7%BA%BF%E8%AF%81%E4%BB%B6%E7%85%A7%E5%88%B6%E4%BD%9Capp.rp)
+- [原型](http://nfunm053.gitee.io/api_passport_photo/#id=pfqphn&p=%E9%A6%96%E9%A1%B5)
+- [原型文档下载](https://github.com/Hinata013/api/blob/master/%E5%9C%A8%E7%BA%BF%E8%AF%81%E4%BB%B6%E7%85%A7%E5%88%B6%E4%BD%9Capp.rp)
 
 ## 口头操作说明
 - 在线证件照制作产品主要用于需要使用到证件照电子图片的时候，使用普通人使用手机拍摄出来的照片肯定是不然实体店专业是摄影师拍摄出来的规范，使用在制作过程中，产品使用API来辅助用户，百度人脸关键点检测api可以检测用户人脸角度，反馈准确的角度偏差，无论是仰俯视角度，还是正侧脸角度，精准的数据反馈更加能辅助用户拍摄角度的规范性，而人像分割则是能直接分割出人像，在选取背景颜色之后就基本上完成制作了，在产品最开始使用是，还会提供各个尺寸规格供用户选择，在用户分割完人像之后，产品还会使用到百度拉伸图像恢复API，经常图片人像是否拉伸过度，这些都是为了制作出来的证件照图片更加规范，实体的证件照绝大多数人都有，但是当某些时候需要线上图片时，却发现平常不太留意，就可以使用本产品，花费不到10分钟的时间制作一张。
@@ -119,7 +119,7 @@ print(content)
  b'ace_type":{"type":"human","probability":1}}]}}')
 
 ```
-- 测试
+- 在线测试结果图
 - ![测试1](https://github.com/Hinata013/api/blob/master/c1.png)
 - ![测试2](https://github.com/Hinata013/api/blob/master/c2.png)
 
@@ -154,9 +154,10 @@ if response:
 ```
 - 输出部分过长，用截图方式体现
 
-- 测试
+- 在线测试结果图测试
 - ![测试3](https://github.com/Hinata013/api/blob/master/c3.png)
 - ![测试4](https://github.com/Hinata013/api/blob/master/c4.png)
+- 自行测试输出结果
 - ![测试5](https://github.com/Hinata013/api/blob/master/77.jpg)
 
 
@@ -188,9 +189,10 @@ if response:
 ```
 - 输出部分过长，用截图方式体现
 
-- 测试
+- 在线测试结果图
 - ![测试5](https://github.com/Hinata013/api/blob/master/c5.png)
 - ![测试6](https://github.com/Hinata013/api/blob/master/c6.png)
+- 自行测试输出结果
 - ![测试7](https://github.com/Hinata013/api/blob/master/88.jpg)
 
 ## 使用比较分析 
