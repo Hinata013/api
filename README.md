@@ -203,8 +203,124 @@ if response:
 #### 主要竞争者-阿里云智能人像分割（抠图）API：
 - 优点： 1、分割精度高，准确率高，速度快。 2、支持软分割，可返回每个像素判为人像的概率，适合在图像合成中应用。
 - 缺点：免费只有试用套餐，收费使用价格较高，头发处理有瑕疵。
+#### 阿里云代码测试
+- 输入
+```
+# -*- coding: utf8 -*-
+import requests, os
+import json
+import hashlib, base64, hmac
+
+app_key = 'LTAI4FhaXP4Te7bz2myVCJAX'
+secret = 'oduJHNWG7qsI4w3mOebWfpxZp7AhNT'
+file_name = '31313.jpg'
+
+stage = 'RELEASE' # 正式环境
+#stage = 'TEST' # 测试环境
+
+host = 'https://aliapi.aisegment.com'  # 抠图接口
+uri = '/segment/matting'
+
+#host = 'https://alidphoto.aisegment.com' # 证件照接口
+#uri = '/idphoto/make'
+
+#host = 'https://ecimage.market.alicloudapi.com' # 商品裁剪接口
+#uri = '/commodity/crop'
+
+
+def params_of_matting(photo_base64, photo_type):
+    return {
+        'photo': photo_base64,
+        'type': photo_type
+    }
+
+
+def params_of_idphoto(photo_base64, photo_type):
+    return {
+        'photo': photo_base64,
+        'type': photo_type,
+        'spec': '2',
+        'bk': 'white'
+    }
+
+
+def params_of_crop(photo_base64):
+    return {
+        'photo': photo_base64,
+        'output_size': [600, 800], #
+        'object_ratio': 0.9
+    }
+
+
+def test_segment():
+
+    api = host + uri
+
+    with open(file_name,'rb') as fp:
+        photo_base64 = base64.b64encode(fp.read())
+
+    _, photo_type = os.path.splitext(file_name)
+    photo_type = photo_type.lstrip('.')
+
+    #body_json = params_of_matting(photo_base64, photo_type)
+    body_json = params_of_idphoto(photo_base64, photo_type)
+    #body_json = params_of_crop(photo_base64)
+
+    body = json.dumps(body_json)
+    md5lib = hashlib.md5()
+    md5lib.update(body)
+    body_md5 = md5lib.digest()
+    body_md5 = base64.b64encode(body_md5)
+
+    method = 'POST'
+    accept = 'application/json'
+    content_type = 'application/octet-stream; charset=utf-8'
+    date_str = ''
+    headers = ''
+
+    string_to_sign = method + '\n' \
+                    + accept + '\n' \
+                    + body_md5 + '\n' \
+                    + content_type + '\n' \
+                    + date_str + '\n' \
+                    + headers \
+                    + uri
+    signed = hmac.new(secret, string_to_sign, digestmod=hashlib.sha256).digest()
+    signed = base64.b64encode(signed)
+
+    headers = {
+        'Accept': accept,
+        'Content-MD5': body_md5,
+        'Content-Type': content_type,
+        'X-Ca-Key': app_key,
+        'X-Ca-Stage': stage,
+        'X-Ca-Signature': signed
+    }
+    #print signed
+
+    resp = requests.post(api, data=body, headers=headers)
+    try:
+        res = resp.content
+        res = json.loads(res)
+        print ('res:', res)
+        if str(res['status']) == '0':
+            print ('成功!')
+        else:
+            print ('失败!')
+    except:
+        print('failed parse:', resp)
+
+
+if __name__ == "__main__":
+    test_segment()
+```
+- 输出
+```
+{'status': 0, 'data': {'result': https://photogallery.oss.aliyuncs.com/photo/1372101300429605/undefined/0b41c8e0-93a1-4e94-adec-1b3e272a71fd.jpg'}}
+```
 #### 选择百度云的原因：
 - 人像分割算法业界领先，评测IoU 90%以上，并基于应用反馈和场景数据持续迭代优化；可提供企业级稳定、精确的大流量服务，拥有毫秒级识别响应能力及99.9%的可靠性保障；性价比更高。
+- 通过输出效果图对比发现，百度的api相比阿里云的人像边缘部分处理的略好一些，相对没那么生硬，自然一些。
 #### 价格（性价比）对比
 ##### 百度价格
 - ![百度](https://github.com/Hinata013/api/blob/master/baidu3.png)
