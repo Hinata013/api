@@ -67,11 +67,11 @@
 - ![二页](https://github.com/Hinata013/api/blob/master/3.png)
 - 4、去除背景完成
 - ![三页](https://github.com/Hinata013/api/blob/master/4.png)
-- 5、拍摄完成
+- 5、拉伸修复完成
 - ![四页](https://github.com/Hinata013/api/blob/master/5.png)
-- 6、拉伸修复完成
+- 6、制作完成
 - ![五页](https://github.com/Hinata013/api/blob/master/6.png)
-- 7、我的节目
+- 7、我的界面
 - ![六页](https://github.com/Hinata013/api/blob/master/7.png)
 ## 信息设计
 - 1、产品结构图
