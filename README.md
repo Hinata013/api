@@ -1,3 +1,4 @@
+
 # 产品需求
 |  发布时间  | 2019年12月5日  |
 |  ----  | ----  |
@@ -49,19 +50,40 @@
 - 场景一：就业指导课上，老师布置了模拟简历的作业，在老师给出的模板上修改填写自己的信息，其他的工作进行得都很顺利，但是就是找不到证件照的电子图片，手头上是有实体证件照，但是无法使用，有不想要专门去实体店拍摄网上使用的图片，于是使用在线证件照制作，制作一张线上使用的证件照图片。
 - 场景二：A同学参加了从化创新就业大赛，需要每个参赛小组的成员都填写基本信息，其中就需要证件照图片，而A同学在学校，无法去找原先拍摄证件照的店家取线上的照片，使用使用在线证件照制作，完成了证件照图片制作。
 
+
 # 原型
 ## 交互及界面
+- 1、登录页面
+- ![登录](https://github.com/Hinata013/api/blob/master/a.png)
+- 1.1、取消授权返回页面
+- ![登录返回](https://github.com/Hinata013/api/blob/master/b.png)
+- 2、首页
 - ![首页](https://github.com/Hinata013/api/blob/master/11.png)
+- 2.1、尺寸选择页面
 - ![一页](https://github.com/Hinata013/api/blob/master/22.png)
+- 3、在相册选择图片1
+- ![相册](https://github.com/Hinata013/api/blob/master/c.png)
+- 3.1、拍摄图片
 - ![二页](https://github.com/Hinata013/api/blob/master/3.png)
+- 4、去除背景完成
 - ![三页](https://github.com/Hinata013/api/blob/master/4.png)
+- 5、拍摄完成
 - ![四页](https://github.com/Hinata013/api/blob/master/5.png)
+- 6、拉伸修复完成
 - ![五页](https://github.com/Hinata013/api/blob/master/6.png)
+- 7、我的节目
 - ![六页](https://github.com/Hinata013/api/blob/master/7.png)
 ## 信息设计
+- 1、产品结构图
 - ![产品结构图](https://github.com/Hinata013/api/blob/master/111.png)
+- 2、信息结构图
 - ![信息结构图](https://github.com/Hinata013/api/blob/master/222.png)
+- 3、使用流程图
 - ![使用流程图](https://github.com/Hinata013/api/blob/master/333.png)
+- 4、产品原型流程图
+- ![流程图](https://github.com/Hinata013/api/blob/master/d.png)
+- 4.1、产品原型流程图2
+- ![流程图1](https://github.com/Hinata013/api/blob/master/e.png)
 
 ## 原型文档
 - [原型](http://nfunm053.gitee.io/api_passport_photo/#id=pfqphn&p=%E9%A6%96%E9%A1%B5)
